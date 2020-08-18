@@ -44,7 +44,8 @@ class MBFFuturePlanning(smach.StateMachine):
                 'WAIT_FOR_GOAL',
                 WaitForGoal(),
                 transitions={
-                    'succeeded': 'GlobalPlanner',
+                    #'succeeded': 'GlobalPlanner',
+                    'received_goal': 'GlobalPlanner',
                     'preempted': 'preempted'})
 
             smach.StateMachine.add(

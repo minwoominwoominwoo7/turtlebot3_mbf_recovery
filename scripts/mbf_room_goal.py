@@ -45,7 +45,8 @@ class MBFStateMachine(smach.StateMachine):
                 'WAIT_FOR_GOAL',
                 WaitForGoal(),
                 transitions={
-                    'succeeded': 'GET_POSES',
+                    #'succeeded': 'GET_POSES',
+                    'received_goal': 'GET_POSES',
                     'preempted': 'preempted'})
 
             # This state takes a target_pose, lookup the room. If a room is found, it will put an array

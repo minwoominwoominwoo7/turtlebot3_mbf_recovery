@@ -59,8 +59,10 @@ def main():
     with mbf_sm:
         smach.StateMachine.add('WAIT_FOR_GOAL',
                                WaitForGoal(),
-                               transitions={'succeeded': 'MOVE_BASE',
-                                            'preempted': 'preempted'})
+                               transitions={
+                                   #'succeeded': 'MOVE_BASE',
+                                   'received_goal': 'MOVE_BASE',
+                                   'preempted': 'preempted'})
 
         smach.StateMachine.add('MOVE_BASE',
                                smach_ros.SimpleActionState(
